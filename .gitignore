@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+.eslintrc.js
+yarn.lock
+
 
 # testing
 /coverage
