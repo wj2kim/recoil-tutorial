@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RecoilRoot } from 'recoil';
+// import FontButton from './Components/FontButton';
+import VideoWrapper from './Components/VideoWrapper';
 
 ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
-      <App />
+      {/* <App /> */}
+      {/* <FontButton /> */}
+      <VideoWrapper />
     </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root')

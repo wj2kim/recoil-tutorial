@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { atom, useRecoilState } from "recoil";
+import React, { useEffect } from 'react';
+import { atom, useRecoilState } from 'recoil';
 
 const reposState = atom({
   key: "repos",
@@ -11,16 +11,21 @@ function App() {
 
   useEffect(() => {
     const getRepos = async() => {
-      const url = "https://ghapi.huchen.dev/repositories?since=monthly";
-      const response = await fetch(url);
+      const response = await fetch("https://ghapi.huchen.dev/repositories?since=daily");
       const body = await response.json();
-      console.log(body);
+      setRepos(body);
     };
 
     getRepos();
   }, []);
 
-  return <div></div>;
+  return repos.map((repo) => (
+    <div key={repo.url}>
+      <a href={repo.url}>
+        {repo.author} / {repo.name}
+      </a>
+    </div>
+  ));
 }
 
 export default App;
